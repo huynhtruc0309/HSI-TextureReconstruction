@@ -1,53 +1,86 @@
 # Texture Reconstruction of Archaeological Textiles Using Hyperspectral Images
 
-## Overview
+This repository provides MATLAB implementations for analyzing and reconstructing fragmented archaeological textiles, specifically the Oseberg tapestries, utilizing hyperspectral imaging methods. Techniques include dimensionality reduction (PCA, ICA, MNF) and K-means clustering.
 
-This project explores the use of **hyperspectral imaging** and computational techniques to analyze and reconstruct **fragmented archaeological textiles**, specifically the **Oseberg tapestries**. The goal is to enhance visualization, uncover hidden details, and aid archaeologists in identifying and matching textile fragments.
+## 🚀 Project Overview
 
-## Key Features
+This project aims to assist archaeologists in reconstructing and analyzing severely degraded textile fragments by:
 
-- **Spectral Visualization**: Implements techniques like **Principal Component Analysis (PCA), Independent Component Analysis (ICA), Minimum Noise Fraction (MNF), and False-Color Imaging** to reveal hidden patterns in hyperspectral images.
-- **Spectral Classification**: Uses **K-means clustering** to group textile fragments based on spectral similarities.
-- **Histogram-Based Evaluation**: Employs the **Jaccard Index** to measure similarity between fragments and validate potential relationships.
-- **Psychophysical Experiment**: Evaluates different spectral visualization techniques through user studies with archaeologists and naive observers.
+- Enhancing visualizations to uncover hidden details
+- Identifying and matching related fragments
+- Streamlining the reconstruction process of historical textiles
 
-## Methodology
+## 🛠️ Techniques and Tools
 
-1. **Dataset**
-   - The dataset consists of **hyperspectral images** of **26 textile fragments** captured in **VNIR (400-1000 nm) and SWIR (1000-2500 nm) spectral ranges**.
-   - Relationships between fragments are hypothesized based on texture, motifs, and weaving styles.
+- **MATLAB:** Core computational framework
+- **Hyperspectral Imaging:** VNIR (400–1000 nm) and SWIR (1000–2500 nm) data analysis
+- **Dimensionality Reduction:** Principal Component Analysis (PCA), Independent Component Analysis (ICA), Minimum Noise Fraction (MNF)
+- **Clustering:** K-means clustering for spectral segmentation
 
-2. **Spectral Visualization Techniques**
-   - **RGB Visualization**
-   - **Bandwise Analysis**
-   - **False-Color Imaging**
-   - **Dimensionality Reduction** (PCA, ICA, MNF)
+## 📂 Repository Structure
 
-3. **Spectral Classification**
-   - **K-means Clustering**: Groups fragments based on spectral signatures.
-   - **Evaluation Methods**:
-     - **Elbow Method**
-     - **Silhouette Score**
-     - **Davies-Bouldin Index**
-     - **Calinski-Harabasz Index**
+- `Classify_RGB_Image.m`: Classifies RGB-based images
+- `extract_false_color.m`: Generates false-color images from hyperspectral data
+- `icaongoing.m`: ICA implementation for visualization
+- `kmeans_color_segmentation.m`: Color-based segmentation using K-means clustering
+- `runICA.m`: Executes Independent Component Analysis (ICA)
+- `runKmeans.m`: Runs K-means clustering on hyperspectral data
+- `runPCA.m`: Performs Principal Component Analysis (PCA)
 
-4. **Histogram-Based Clustering & Jaccard Index**
-   - A threshold-based Jaccard Index is used to determine fragment relationships.
-   - **Evaluation Metrics**:
-     - **Accuracy: 85%**
-     - **Precision: 89%**
-     - **Recall: 80%**
-     - **F1-score: 84%**
+## 💻 Usage
 
-## Results
+### Dimensionality Reduction
 
-- **MNF outperformed PCA and ICA** in terms of clarity and ease of recognition.
-- **Jaccard Index-based classification** successfully identified related fragments with high precision.
-- **False-color imaging** revealed subtle material and weave pattern differences.
+- **PCA:**
+```matlab
+runPCA
+```
+- **ICA:**
+```matlab
+runICA
+```
+### K-means Clustering
+Segment hyperspectral data into meaningful clusters:
 
-## Future Work
+```matlab
+runKmeans
+```
+### False-Color Visualization
+Generate false-color images highlighting spectral details:
 
-- Integrate **Spectral Angle Mapper (SAM), Spectral Correlation Mapper (SCM), and Spectral Information Divergence (SID)** for improved classification.
-- Automate preprocessing and component selection.
-- Apply the method to larger datasets, including the **entire Oseberg collection**.
-- Develop **interactive tools** for archaeologists to explore hyperspectral data.
+```matlab
+extract_false_color
+```
+## 📊 Results
+
+### Psychophysical Experiments
+
+- **MNF** visualizations consistently outperformed **PCA** and **ICA** in:
+  - Clarity of visualization
+  - Ease of recognizing key elements like figures, patterns, and textures
+
+### Histogram-based Clustering Evaluation
+
+Using a **Jaccard Index threshold of 0.6**, the clustering method achieved:
+
+- **Accuracy:** 85%
+- **Precision:** 89%
+- **Recall:** 80%
+- **F1-Score:** 84%
+
+For detailed methodology, experiments, and further analysis, please refer to the provided [Report](Report.pdf).
+
+## 📖 Citation
+If you find this project helpful, please cite:
+
+```bibtex
+@misc{huynh2024texture,
+  author = {Truc Luong Phuong HUYNH},
+  title = {Texture Reconstruction Of Archaeological Textiles Using Hyperspectral Images},
+  year = {2024},
+  howpublished = {GitHub repository},
+  url = {https://github.com/huynhtruc0309}
+}
+```
+## 📜 License
+This project is licensed under the MIT License.
